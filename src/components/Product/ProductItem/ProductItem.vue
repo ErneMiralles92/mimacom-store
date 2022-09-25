@@ -45,6 +45,7 @@ const { product } = toRefs(props)
   white-space: normal;
   border-radius: 6px;
   box-shadow: $elevation-1;
+  background-color: #ffffff;
 
   &:hover {
     box-shadow: $elevation-2;
@@ -87,7 +88,7 @@ const { product } = toRefs(props)
       font-size: 0.875rem;
 
       @media screen and (min-width: $breakpoint-md) {
-        font-size: 1rem;
+        font-size: 1.25rem;
       }
     }
 

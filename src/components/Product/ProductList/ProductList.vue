@@ -1,5 +1,5 @@
 <template>
-  <div class="product-list">
+  <div ref="paginationContainer" class="product-list">
     <div
       v-for="product in products"
       :key="product.id"
@@ -7,19 +7,41 @@
     >
       <ProductItem :product="product" />
     </div>
+    <div ref="sentinel" class="sentinel" />
   </div>
 </template>
 
 <script setup lang="ts">
 import ProductItem from '../ProductItem'
-import { Product } from '../../../types'
-import { toRefs } from 'vue'
+import { ref } from 'vue'
+import { useProduct } from '../composable'
+import { useIntersectionObserver } from '@vueuse/core'
 
-interface Props {
-  products: Array<Product>
+const sentinel = ref(null)
+const targetIsVisible = ref(false)
+const { stop: stopObserver } = useIntersectionObserver(
+  sentinel,
+  ([{ isIntersecting }]) => {
+    targetIsVisible.value = isIntersecting
+    if (isIntersecting) {
+      onLoadMore()
+    }
+  },
+)
+
+const { products, getMoreProducts } = useProduct()
+const paginationContainer = ref<HTMLElement | null>(null)
+const page = ref(1)
+const onLoadMore = async () => {
+  const { data, error } = await getMoreProducts({
+    page: page.value,
+    perPage: 12,
+  })
+  if (!error && data.length === 0) {
+    stopObserver()
+  }
+  page.value++
 }
-const props = defineProps<Props>()
-const { products } = toRefs(props)
 </script>
 
 <style scoped lang="scss">
@@ -40,6 +62,10 @@ const { products } = toRefs(props)
       flex: 0 0 calc(3 / 12 * 100%);
       max-width: calc(3 / 12 * 100%);
     }
+  }
+  .sentinel {
+    width: 1rem;
+    height: 1rem;
   }
 }
 </style>
