@@ -15,11 +15,22 @@
       <p class="product-item-description text-subtitle">
         {{ product.productDescription }}
       </p>
-      <div class="row justify-between align-center" style="margin-top: 1rem">
+      <div class="product-item-bottom">
         <span class="product-item-availability">
           {{ product.stock }} left
         </span>
-        <button class="product-item-button">Add</button>
+        <button
+          class="product-item-button"
+          :disabled="product.stock === 0"
+          @click="addToCart(product)"
+        >
+          <div class="row align-center">
+            <AppIcon color="white" size="16"> mdi-cart-plus </AppIcon>
+            <span class="hide_on_mobile" style="margin-left: 0.25rem">
+              Add
+            </span>
+          </div>
+        </button>
       </div>
     </div>
   </div>
@@ -28,12 +39,18 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
 import { Product } from '../../../types'
+import AppIcon from '../../UI/AppIcon.vue'
+
 interface Props {
   product: Product
 }
 
 const props = defineProps<Props>()
 const { product } = toRefs(props)
+
+function addToCart(product: Product) {
+  console.log({ addToCart: product })
+}
 </script>
 
 <style scoped lang="scss">
@@ -85,7 +102,7 @@ const { product } = toRefs(props)
     .product-item-price {
       color: $primary;
       font-weight: 700;
-      font-size: 0.875rem;
+      font-size: 1rem;
 
       @media screen and (min-width: $breakpoint-md) {
         font-size: 1.25rem;
@@ -107,6 +124,16 @@ const { product } = toRefs(props)
       }
     }
 
+    .product-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.25rem;
+      @media screen and (min-width: $breakpoint-sm) {
+        display: 1rem;
+      }
+    }
+
     .product-item-availability {
       color: $accent;
       padding-right: 0.25rem;
@@ -120,9 +147,14 @@ const { product } = toRefs(props)
     }
 
     .product-item-button {
-      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 1.5rem;
+      width: 1.5rem;
       border: 1px solid transparent;
-      padding: 0.5rem 1rem;
+      padding: 1rem;
       font-size: 1em;
       font-weight: 500;
       text-transform: uppercase;
@@ -131,7 +163,13 @@ const { product } = toRefs(props)
       background-color: $primary;
       color: #ffffff;
       cursor: pointer;
-      transition: border-color 0.25s;
+
+      @media screen and (min-width: $breakpoint-sm) {
+        height: fit-content;
+        width: fit-content;
+        border-radius: 0.325rem;
+        padding: 0.5rem 1rem;
+      }
 
       &:hover {
         box-shadow: $elevation-1;
@@ -139,6 +177,11 @@ const { product } = toRefs(props)
       &:focus,
       &:focus-visible {
         outline: none;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: #4e4379;
       }
     }
   }

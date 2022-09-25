@@ -48,13 +48,17 @@ const onLoadMore = async () => {
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  margin: -0.5rem;
+  margin: -0.25rem;
+  @media screen and (min-width: $breakpoint-sm) {
+    margin: -0.5rem;
+  }
   .product-list-item {
-    padding: 0.5rem;
+    padding: 0.25rem;
     flex: 0 0 calc(6 / 12 * 100%);
     max-width: calc(6 / 12 * 100%);
 
     @media screen and (min-width: $breakpoint-sm) {
+      padding: 0.5rem;
       flex: 0 0 calc(4 / 12 * 100%);
       max-width: calc(4 / 12 * 100%);
     }

@@ -68,3 +68,17 @@ body {
 .font-weight-bold {
   font-weight: 700;
 }
+
+.show_on_mobile {
+  display: block;
+  @media screen and (min-width: $breakpoint-sm){
+    display: none;
+  }
+}
+
+.hide_on_mobile {
+  display: none;
+  @media screen and (min-width: $breakpoint-sm){
+    display: block;
+  }
+}
