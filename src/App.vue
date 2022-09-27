@@ -2,11 +2,19 @@
 import ProductList from './components/Product/ProductList'
 import TheHeader from './components/Layout/TheHeader.vue'
 import TheRightSidebar from './components/Layout/TheRightSidebar.vue'
+import CartList from './components/Cart/CartList'
+import CartPayment from './components/Cart/CartPayment'
 </script>
 
 <template>
   <TheHeader />
-  <TheRightSidebar />
+  <TheRightSidebar>
+    <template #top><h5>Cart</h5></template>
+    <CartList style="margin-top: -0.25rem" />
+    <template #bottom>
+      <CartPayment />
+    </template>
+  </TheRightSidebar>
   <main>
     <div class="app-container container">
       <h5>Product List</h5>
@@ -19,10 +27,6 @@ import TheRightSidebar from './components/Layout/TheRightSidebar.vue'
 main {
   padding-top: $headerHeight;
   padding-right: 0;
-
-  @media screen and (min-width: $breakpoint-sm) {
-    padding-right: $sideBarTabletWidth;
-  }
 
   @media screen and (min-width: $breakpoint-md) {
     padding-right: calc(1.5rem + #{$sideBarWidth});

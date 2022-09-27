@@ -7,3 +7,8 @@ export interface Product {
   productDescription: string
   favorite: string | number
 }
+
+export interface CartItem {
+  product: Product
+  frequency: number
+}

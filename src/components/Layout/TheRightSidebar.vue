@@ -1,8 +1,10 @@
 <template>
   <aside class="app-sidebar">
+    <slot class="app-nav-top" name="top" />
     <nav class="app-nav-content">
-      <h5>Cart</h5>
+      <slot name="default" />
     </nav>
+    <slot class="app-nav-bottom" name="bottom" />
   </aside>
 </template>
 
@@ -21,7 +23,7 @@ aside {
   display: none;
   flex-direction: column;
   right: 0;
-  padding: 1rem;
+  padding: 1rem 0.75rem;
   overflow: hidden;
   margin-left: 4px;
   z-index: 10;
@@ -29,11 +31,8 @@ aside {
   border-left: 1px solid $dividerColor;
   display: none;
 
-  @media screen and (min-width: $breakpoint-sm) {
-    display: flex;
-    width: $sideBarTabletWidth;
-  }
   @media screen and (min-width: $breakpoint-md) {
+    display: flex;
     width: $sideBarWidth;
   }
   .app-nav-content {
@@ -43,6 +42,7 @@ aside {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    @include scrollbars(6px, #9e9e9e);
   }
 }
 </style>

@@ -10,7 +10,7 @@
     <div class="product-item-content">
       <div class="row justify-between" style="margin-top: 0.5rem">
         <span class="product-item-title">{{ product.productName }}</span>
-        <span class="product-item-price">$ {{ product.price }}</span>
+        <span class="product-item-price">{{ product.price }}</span>
       </div>
       <p class="product-item-description text-subtitle">
         {{ product.productDescription }}
@@ -104,8 +104,17 @@ function addToCart(product: Product) {
       font-weight: 700;
       font-size: 1rem;
 
+      &:before {
+        content: '$ ';
+        font-size: 0.875rem;
+      }
+
       @media screen and (min-width: $breakpoint-md) {
         font-size: 1.25rem;
+        &:before {
+          content: '$ ';
+          font-size: 1rem;
+        }
       }
     }
 

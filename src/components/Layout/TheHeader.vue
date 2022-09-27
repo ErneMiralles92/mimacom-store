@@ -8,7 +8,7 @@
         <h6>Grocery</h6>
       </div>
       <div style="flex-grow: 1" />
-      <button class="cart-btn show-on-mobile">
+      <button class="cart-btn hide-on-desktop">
         <AppIcon size="16" color="white">mdi-cart</AppIcon>
         <div
           class="badge"
@@ -38,10 +38,6 @@ import AppIcon from '../UI/AppIcon.vue'
   z-index: 5;
   border-bottom: 1px solid $dividerColor;
   padding-right: 0;
-
-  @media screen and (min-width: $breakpoint-sm) {
-    padding-right: $sideBarTabletWidth;
-  }
 
   @media screen and (min-width: $breakpoint-md) {
     padding-right: calc(1.5rem + #{$sideBarWidth});
