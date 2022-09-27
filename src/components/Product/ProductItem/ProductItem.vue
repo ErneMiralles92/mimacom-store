@@ -26,7 +26,7 @@
         >
           <div class="row align-center">
             <AppIcon color="white" size="16"> mdi-cart-plus </AppIcon>
-            <span class="hide_on_mobile" style="margin-left: 0.25rem">
+            <span class="hide-on-mobile" style="margin-left: 0.25rem">
               Add
             </span>
           </div>
@@ -182,6 +182,7 @@ function addToCart(product: Product) {
       &:disabled {
         cursor: not-allowed;
         background-color: #4e4379;
+        color: #fefefe;
       }
     }
   }

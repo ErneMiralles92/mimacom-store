@@ -57,12 +57,12 @@ const onLoadMore = async () => {
     flex: 0 0 calc(6 / 12 * 100%);
     max-width: calc(6 / 12 * 100%);
 
-    @media screen and (min-width: $breakpoint-sm) {
-      padding: 0.5rem;
+    @media screen and (min-width: $breakpoint-md) {
       flex: 0 0 calc(4 / 12 * 100%);
       max-width: calc(4 / 12 * 100%);
     }
-    @media screen and (min-width: $breakpoint-md) {
+
+    @media screen and (min-width: $breakpoint-lg) {
       flex: 0 0 calc(3 / 12 * 100%);
       max-width: calc(3 / 12 * 100%);
     }
