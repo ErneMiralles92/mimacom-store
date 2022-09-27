@@ -2,9 +2,10 @@
 
 /** A service wrapper for axios*/
 import axios, { AxiosInstance, AxiosResponse } from 'axios'
+const { VITE_API_URL } = import.meta.env
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: VITE_API_URL || 'http://localhost:3000',
   headers: {
     'Content-type': 'application/json',
   },
