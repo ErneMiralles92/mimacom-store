@@ -23,7 +23,7 @@
         <AppIcon size="20" color="white">mdi-cart</AppIcon>
         <div
           v-if="cartStore.cart.length > 0"
-          class="badge"
+          class="app-badge"
           size="16"
           :style="{
             'background-color': '#9c27b0',
@@ -97,19 +97,6 @@ const cartStore = useCart()
       display: flex;
       justify-content: center;
       align-items: center;
-
-      .badge {
-        border-radius: 50%;
-        color: #fafafa;
-        height: 18px;
-        width: 18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: -0.325rem;
-        right: -0.325rem;
-      }
     }
     .go-back-btn {
       position: relative;
@@ -129,18 +116,6 @@ const cartStore = useCart()
       &:focus,
       &:focus-visible {
         outline: none;
-      }
-      .badge {
-        border-radius: 50%;
-        color: #fafafa;
-        height: 18px;
-        width: 18px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: -0.325rem;
-        right: -0.325rem;
       }
     }
   }

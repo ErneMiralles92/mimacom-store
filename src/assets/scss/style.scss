@@ -132,4 +132,17 @@ h6 {
   color: $primary;
 }
 
+.app-badge {
+  border-radius: 50%;
+  color: $standardColor;
+  height: 1.125rem;
+  width: 1.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -0.325rem;
+  right: -0.325rem;
+}
+
 

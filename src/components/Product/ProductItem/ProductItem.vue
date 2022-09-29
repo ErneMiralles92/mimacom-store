@@ -29,6 +29,17 @@
             <span class="hide-on-mobile" style="margin-left: 0.25rem">
               Add
             </span>
+            <div
+              v-if="itemFrequency > 0"
+              class="app-badge hide-on-desktop"
+              size="16"
+              :style="{
+                'background-color': '#9c27b0',
+                color: '#FFFFFF',
+              }"
+            >
+              {{ itemFrequency }}
+            </div>
           </div>
         </button>
       </div>
@@ -55,6 +66,11 @@ const noMoreStock = computed(() => {
   const cartItem = cart.find((cItem) => cItem.product.id === product.value.id)
   const stockInCart = cartItem ? cartItem.frequency : 0
   return product.value.stock === stockInCart
+})
+
+const itemFrequency = computed(() => {
+  const cartItem = cart.find((cItem) => cItem.product.id === product.value.id)
+  return cartItem ? cartItem.frequency : 0
 })
 </script>
 
@@ -161,6 +177,7 @@ const noMoreStock = computed(() => {
     }
 
     .product-item-button {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
