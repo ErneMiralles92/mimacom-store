@@ -43,6 +43,10 @@ import AppIcon from '../UI/AppIcon.vue'
     padding-right: calc(1.5rem + #{$sideBarWidth});
   }
 
+  @media screen and (min-width: $breakpoint-xl) {
+    padding-right: calc(1.5rem + #{$sideBarXlWidth});
+  }
+
   .container {
     .the-header-logo {
       height: 1.5rem;

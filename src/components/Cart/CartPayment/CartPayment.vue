@@ -2,13 +2,19 @@
   <div class="cart-payment">
     <div class="cart-payment-total">
       <span class="text-title">Total amount</span>
-      <span class="amount">{{ 100 }}</span>
+      <span class="amount">{{ cartStore.totalToPay }}</span>
     </div>
-    <hr class="app-divider" style="margin: 1rem 0" />
+    <hr class="app-divider" style="margin: 1.5rem 0" />
+    <button class="cart-payment-button" :disabled="cartStore.cart.length === 0">
+      Make a payment
+    </button>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useCart } from '../cartStore'
+const cartStore = useCart()
+</script>
 
 <style scoped lang="scss">
 .cart-payment {
@@ -28,6 +34,37 @@
         content: '$ ';
         font-size: 1.25rem;
       }
+    }
+  }
+
+  .cart-payment-button {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    height: fit-content;
+    width: 100%;
+    border-radius: 0.325rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    font-size: 1.25rem;
+    background-color: $accent;
+    color: #ffffff;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: $elevation-1;
+    }
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #4e4379;
+      color: #9e9e9e;
     }
   }
 }

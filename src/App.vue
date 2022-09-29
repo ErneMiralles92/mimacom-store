@@ -31,6 +31,9 @@ main {
   @media screen and (min-width: $breakpoint-md) {
     padding-right: calc(1.5rem + #{$sideBarWidth});
   }
+  @media screen and (min-width: $breakpoint-xl) {
+    padding-right: calc(1.5rem + #{$sideBarXlWidth});
+  }
   .app-container {
     padding-top: 1rem;
     padding-bottom: 1rem;

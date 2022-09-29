@@ -35,6 +35,11 @@ aside {
     display: flex;
     width: $sideBarWidth;
   }
+
+  @media screen and (min-width: $breakpoint-xl) {
+    display: flex;
+    width: $sideBarXlWidth;
+  }
   .app-nav-content {
     height: 100%;
     width: 100%;

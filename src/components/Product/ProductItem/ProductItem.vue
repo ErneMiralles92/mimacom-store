@@ -21,8 +21,8 @@
         </span>
         <button
           class="product-item-button"
-          :disabled="product.stock === 0"
-          @click="addToCart(product)"
+          :disabled="noMoreStock"
+          @click="() => addProduct(product)"
         >
           <div class="row align-center">
             <AppIcon color="white" size="16"> mdi-cart-plus </AppIcon>
@@ -37,9 +37,10 @@
 </template>
 
 <script setup lang="ts">
-import { toRefs } from 'vue'
+import { toRefs, computed } from 'vue'
 import { Product } from '../../../types'
 import AppIcon from '../../UI/AppIcon.vue'
+import { useCart } from '../../Cart/cartStore'
 
 interface Props {
   product: Product
@@ -48,9 +49,13 @@ interface Props {
 const props = defineProps<Props>()
 const { product } = toRefs(props)
 
-function addToCart(product: Product) {
-  console.log({ addToCart: product })
-}
+const { addProduct, cart } = useCart()
+
+const noMoreStock = computed(() => {
+  const cartItem = cart.find((cItem) => cItem.product.id === product.value.id)
+  const stockInCart = cartItem ? cartItem.frequency : 0
+  return product.value.stock === stockInCart
+})
 </script>
 
 <style scoped lang="scss">
