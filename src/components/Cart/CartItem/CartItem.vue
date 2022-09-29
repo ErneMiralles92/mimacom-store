@@ -104,6 +104,7 @@ const { addProduct, removeProduct } = useCart()
     color: $primary;
     font-weight: 700;
     font-size: 1.25rem;
+    min-width: 4rem;
 
     &:before {
       content: '$ ';

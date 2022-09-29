@@ -1,4 +1,5 @@
 <template>
+  <h5 class="primary--text">Product List</h5>
   <div ref="paginationContainer" class="product-list">
     <div
       v-for="product in products"

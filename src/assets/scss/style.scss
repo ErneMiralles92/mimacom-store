@@ -80,14 +80,14 @@ button {
 }
 
 .show-on-mobile {
-  display: block !important;
+  display: unset;
   @media screen and (min-width: $breakpoint-sm){
     display: none  !important;
   }
 }
 
 .hide-on-desktop {
-  display: block  !important;
+  display: unset;
   @media screen and (min-width: $breakpoint-md){
     display: none  !important;
   }
@@ -122,6 +122,10 @@ h6 {
   border: 0 solid $dividerColor;
   border-bottom-width: 1px;
   margin: 0;
+}
+
+.primary--text {
+  color: $primary;
 }
 
 

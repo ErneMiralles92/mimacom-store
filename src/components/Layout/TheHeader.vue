@@ -1,16 +1,28 @@
 <template>
   <div class="the-header">
     <div class="container row align-center" style="height: 100%">
-      <div class="the-header-logo">
+      <div class="the-header-logo" @click="router.push('/')">
         <img alt="logo" src="/mimacom.svg" />
       </div>
       <div class="">
         <h6>Grocery</h6>
       </div>
       <div style="flex-grow: 1" />
-      <button class="cart-btn hide-on-desktop">
-        <AppIcon size="16" color="white">mdi-cart</AppIcon>
+      <button
+        v-if="route.name !== 'home'"
+        class="nav_btn go-back-btn hide-on-desktop"
+        @click="router.push('/')"
+      >
+        <AppIcon size="24" color="white">mdi-home</AppIcon>
+      </button>
+      <button
+        v-if="route.name !== 'cart'"
+        class="nav_btn cart-btn hide-on-desktop"
+        @click="router.push({ name: 'cart' })"
+      >
+        <AppIcon size="20" color="white">mdi-cart</AppIcon>
         <div
+          v-if="cartStore.cart.length > 0"
           class="badge"
           size="16"
           :style="{
@@ -18,7 +30,7 @@
             color: '#FFFFFF',
           }"
         >
-          {{ 3 }}
+          {{ cartStore.cart.length }}
         </div>
       </button>
     </div>
@@ -26,6 +38,11 @@
 </template>
 <script setup lang="ts">
 import AppIcon from '../UI/AppIcon.vue'
+import { useCart } from '../Cart/cartStore'
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
+const router = useRouter()
+const cartStore = useCart()
 </script>
 
 <style lang="scss" scoped>
@@ -57,10 +74,51 @@ import AppIcon from '../UI/AppIcon.vue'
         height: 100%;
       }
     }
-    .cart-btn {
+
+    .nav_btn {
       position: relative;
       border-radius: 50%;
-      padding: 0.5rem;
+      border: 1px solid transparent;
+      color: #ffffff;
+
+      &:hover {
+        box-shadow: $elevation-1;
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+    .cart-btn {
+      background-color: $primary;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .badge {
+        border-radius: 50%;
+        color: #fafafa;
+        height: 18px;
+        width: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -0.325rem;
+        right: -0.325rem;
+      }
+    }
+    .go-back-btn {
+      position: relative;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       border: 1px solid transparent;
       background-color: $primary;
       color: #ffffff;
