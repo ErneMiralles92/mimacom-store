@@ -64,6 +64,7 @@ const { addProduct, removeProduct } = useCart()
       align-items: center;
       border: 1px solid $accent;
       border-radius: 0.25rem;
+      box-shadow: $elevation-1;
 
       .cart-item-quantity {
         padding: 0 0.5rem;
@@ -81,6 +82,7 @@ const { addProduct, removeProduct } = useCart()
         background-color: transparent;
         color: $text;
         cursor: pointer;
+        border-radius: 0.25rem;
 
         &:hover {
           background-color: #cfd8dc;

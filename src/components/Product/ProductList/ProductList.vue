@@ -9,11 +9,15 @@
       <ProductItem :product="product" />
     </div>
     <div ref="sentinel" class="sentinel" />
+    <div v-if="isLoading" style="margin-top: 0.5rem">
+      <AppSpinner />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import ProductItem from '../ProductItem'
+import AppSpinner from '../../UI/AppSpinner.vue'
 import { ref } from 'vue'
 import { useProduct } from '../composable'
 import { useIntersectionObserver } from '@vueuse/core'
@@ -30,7 +34,7 @@ const { stop: stopObserver } = useIntersectionObserver(
   },
 )
 
-const { products, getMoreProducts } = useProduct()
+const { products, getMoreProducts, isLoading } = useProduct()
 const paginationContainer = ref<HTMLElement | null>(null)
 const page = ref(1)
 const onLoadMore = async () => {
@@ -50,6 +54,8 @@ const onLoadMore = async () => {
   display: flex;
   flex-wrap: wrap;
   margin: -0.25rem;
+  justify-content: center;
+
   @media screen and (min-width: $breakpoint-sm) {
     margin: -0.5rem;
   }
