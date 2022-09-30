@@ -241,9 +241,6 @@ const itemFrequency = computed(() => {
       background-color: $standardBackgroundColor;
       width: 2.5rem;
       height: 2.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       box-shadow: $elevation-1;
 
       &:hover {
