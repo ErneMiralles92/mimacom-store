@@ -3,8 +3,10 @@ import HttpService from '../../services/http'
 import { Product } from '../../types'
 
 export function useProduct() {
-  const isLoading = ref(true)
+  const isLoading = ref(false)
   const products = ref<Array<Product>>([])
+
+  const updatingFavorite = ref(false)
 
   const getMoreProducts = async ({
     page,
@@ -37,9 +39,34 @@ export function useProduct() {
     isLoading.value = false
     return { data, error }
   }
+
+  const updateProduct = async (id: string, fields: { favorite: number }) => {
+    let error: Error | null = null
+    let data: Product | null = null
+    updatingFavorite.value = true
+    try {
+      const response = await HttpService.patch(`/grocery/${id}`, {
+        favorite: fields.favorite,
+      })
+      if (response.status === 200) {
+        data = response.data
+        const index = products.value.findIndex((product) => product.id === id)
+        if (index !== -1) {
+          products.value[index].favorite = fields.favorite
+        }
+      }
+    } catch (err) {
+      error = err as Error
+      console.error(err)
+    }
+    updatingFavorite.value = false
+    return { data, error }
+  }
   return {
     isLoading,
     products,
     getMoreProducts,
+    updatingFavorite,
+    updateProduct,
   }
 }

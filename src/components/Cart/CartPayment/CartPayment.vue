@@ -46,11 +46,10 @@ const cartStore = useCart()
     border-radius: 0.325rem;
     padding: 0.75rem 1rem;
     border: 1px solid transparent;
-    font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     font-size: 1.25rem;
-    background-color: $accent;
+    background: linear-gradient(to right, #9d38af, #7a068f);
     color: #ffffff;
     cursor: pointer;
 
@@ -63,7 +62,7 @@ const cartStore = useCart()
     }
     &:disabled {
       cursor: not-allowed;
-      background-color: #4e4379;
+      background: #4e4379;
       color: #9e9e9e;
     }
   }

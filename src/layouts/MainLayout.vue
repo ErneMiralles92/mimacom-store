@@ -8,7 +8,7 @@
     </template>
   </TheRightSidebar>
   <main>
-    <div class="app-container container">
+    <div class="app-container column">
       <router-view></router-view>
     </div>
   </main>

@@ -44,6 +44,13 @@
         </button>
       </div>
     </div>
+    <div class="product-item-favorite">
+      <button @click="$emit('updateFavorite', product)">
+        <AppIcon size="28" color="#C58B35">{{
+          +product.favorite === 1 ? 'mdi-star' : 'mdi-star-outline'
+        }}</AppIcon>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -60,6 +67,10 @@ interface Props {
 const props = defineProps<Props>()
 const { product } = toRefs(props)
 
+defineEmits<{
+  // eslint-disable-next-line no-unused-vars
+  (e: 'updateFavorite', payload: Product): void
+}>()
 const { addProduct, cart } = useCart()
 
 const noMoreStock = computed(() => {
@@ -76,6 +87,7 @@ const itemFrequency = computed(() => {
 
 <style scoped lang="scss">
 .product-item {
+  position: relative;
   display: block;
   max-width: 300px;
   outline: none;
@@ -214,6 +226,33 @@ const itemFrequency = computed(() => {
         cursor: not-allowed;
         background-color: #4e4379;
         color: #fefefe;
+      }
+    }
+  }
+  .product-item-favorite {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+
+    button {
+      position: relative;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      background-color: $standardBackgroundColor;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: $elevation-1;
+
+      &:hover {
+        box-shadow: $elevation-2;
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
       }
     }
   }

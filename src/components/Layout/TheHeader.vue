@@ -1,6 +1,6 @@
 <template>
   <div class="the-header">
-    <div class="container row align-center" style="height: 100%">
+    <div class="app-container row align-center" style="height: 100%">
       <div class="the-header-logo" @click="router.push('/')">
         <img alt="logo" src="/mimacom.svg" />
       </div>
@@ -64,59 +64,57 @@ const cartStore = useCart()
     padding-right: calc(1.5rem + #{$sideBarXlWidth});
   }
 
-  .container {
-    .the-header-logo {
-      height: 1.5rem;
-      margin-right: 1rem;
+  .the-header-logo {
+    height: 1.5rem;
+    margin-right: 1rem;
 
-      img {
-        width: auto;
-        height: 100%;
-      }
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .nav_btn {
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    color: #ffffff;
+
+    &:hover {
+      box-shadow: $elevation-1;
     }
 
-    .nav_btn {
-      position: relative;
-      border-radius: 50%;
-      border: 1px solid transparent;
-      color: #ffffff;
-
-      &:hover {
-        box-shadow: $elevation-1;
-      }
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
+    &:focus,
+    &:focus-visible {
+      outline: none;
     }
-    .cart-btn {
-      background-color: $primary;
-      width: 2rem;
-      height: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .go-back-btn {
-      position: relative;
-      border-radius: 50%;
-      width: 2rem;
-      height: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid transparent;
-      background-color: $primary;
-      color: #ffffff;
+  }
+  .cart-btn {
+    background-color: $primary;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .go-back-btn {
+    position: relative;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    background-color: $primary;
+    color: #ffffff;
 
-      &:hover {
-        box-shadow: $elevation-1;
-      }
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
+    &:hover {
+      box-shadow: $elevation-1;
+    }
+    &:focus,
+    &:focus-visible {
+      outline: none;
     }
   }
 }
