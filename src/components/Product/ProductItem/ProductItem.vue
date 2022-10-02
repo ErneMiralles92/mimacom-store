@@ -9,7 +9,9 @@
     </div>
     <div class="product-item-content">
       <div class="row justify-between" style="margin-top: 0.5rem">
-        <span class="product-item-title">{{ product.productName }}</span>
+        <span class="product-item-title" data-testid="productName">{{
+          product.productName
+        }}</span>
         <span class="product-item-price">{{ product.price }}</span>
       </div>
       <p class="product-item-description text-subtitle">
@@ -22,6 +24,7 @@
         <button
           class="product-item-button"
           :disabled="noMoreStock"
+          :data-testid="`addProductBtn-${product.id}`"
           @click="() => addProduct(product)"
         >
           <div class="row align-center">
@@ -45,7 +48,10 @@
       </div>
     </div>
     <div class="product-item-favorite">
-      <button @click="$emit('updateFavorite', product)">
+      <button
+        :data-testid="`favoriteProductBtn-${product.id}`"
+        @click="$emit('updateFavorite', product)"
+      >
         <AppIcon size="28" color="#C58B35">{{
           +product.favorite === 1 ? 'mdi-star' : 'mdi-star-outline'
         }}</AppIcon>
