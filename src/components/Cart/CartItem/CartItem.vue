@@ -90,7 +90,6 @@ const { addProduct, removeProduct } = useCartStore()
         border: none;
         background-color: transparent;
         color: $text;
-        cursor: pointer;
         border-radius: 0.25rem;
 
         &:hover {
@@ -98,8 +97,7 @@ const { addProduct, removeProduct } = useCartStore()
         }
 
         &:disabled {
-          cursor: not-allowed;
-          background-color: #4e4379;
+          background-color: $disabledBackground;
           color: #fefefe;
         }
       }

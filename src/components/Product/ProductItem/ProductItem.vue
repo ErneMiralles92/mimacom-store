@@ -204,14 +204,9 @@ const itemFrequency = computed(() => {
       width: 1.5rem;
       border: 1px solid transparent;
       padding: 1rem;
-      font-size: 1em;
-      font-weight: 500;
       text-transform: uppercase;
-      font-family: inherit;
-      font-size: 0.875rem;
       background-color: $primary;
       color: #ffffff;
-      cursor: pointer;
 
       @media screen and (min-width: $breakpoint-sm) {
         height: fit-content;
@@ -225,8 +220,7 @@ const itemFrequency = computed(() => {
       }
 
       &:disabled {
-        cursor: not-allowed;
-        background-color: #4e4379;
+        background-color: $disabledBackground;
         color: #fefefe;
       }
     }

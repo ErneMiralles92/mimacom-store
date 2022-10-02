@@ -55,15 +55,13 @@ const cartStore = useCartStore()
     font-size: 1.25rem;
     background: linear-gradient(to right, #9d38af, #7a068f);
     color: #ffffff;
-    cursor: pointer;
 
     &:hover {
       box-shadow: $elevation-1;
     }
 
     &:disabled {
-      cursor: not-allowed;
-      background: #4e4379;
+      background: $disabledBackground;
       color: #9e9e9e;
     }
   }

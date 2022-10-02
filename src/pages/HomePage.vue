@@ -45,15 +45,10 @@ const favorite = ref(false)
   font-size: 1rem;
   background: transparent;
   color: $primary;
-  cursor: pointer;
 
   span {
     color: $primary;
     font-size: 1.25rem;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
   }
 
   &:hover {
