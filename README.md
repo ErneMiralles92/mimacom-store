@@ -6,7 +6,7 @@ A simple demo app of an online store where you can add products to the cart and 
 - [TypeScript](https://www.typescriptlang.org)
 - [Pinia](https://pinia.vuejs.org/) as Vue Store for state managing
 - [Vitest](https://vitest.dev/) for develop and run unit tests
-- [Cypress](https://vitejs.dev) for develop and run e2e tests
+- [Cypress](https://www.cypress.io/) for develop and run e2e tests
 ## Development server
 ```bash
 yarn dev
