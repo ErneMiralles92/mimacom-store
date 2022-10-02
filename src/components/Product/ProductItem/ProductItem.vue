@@ -64,7 +64,7 @@
 import { toRefs, computed } from 'vue'
 import { Product } from '../../../types'
 import AppIcon from '../../UI/AppIcon.vue'
-import { useCart } from '../../Cart/cartStore'
+import { useCartStore } from '../../Cart/cartStore'
 
 interface Props {
   product: Product
@@ -77,7 +77,7 @@ defineEmits<{
   // eslint-disable-next-line no-unused-vars
   (e: 'updateFavorite', payload: Product): void
 }>()
-const { addProduct, cart } = useCart()
+const { addProduct, cart } = useCartStore()
 
 const noMoreStock = computed(() => {
   const cartItem = cart.find((cItem) => cItem.product.id === product.value.id)

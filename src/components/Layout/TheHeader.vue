@@ -38,11 +38,11 @@
 </template>
 <script setup lang="ts">
 import AppIcon from '../UI/AppIcon.vue'
-import { useCart } from '../Cart/cartStore'
+import { useCartStore } from '../Cart/cartStore'
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
-const cartStore = useCart()
+const cartStore = useCartStore()
 </script>
 
 <style lang="scss" scoped>

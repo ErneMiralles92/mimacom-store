@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { useCart } from '../cartStore'
-const cartStore = useCart()
+import { useCartStore } from '../cartStore'
+const cartStore = useCartStore()
 </script>
 
 <style scoped lang="scss">

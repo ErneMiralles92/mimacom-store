@@ -32,13 +32,13 @@
 import { toRefs } from 'vue'
 import { CartItem } from '../../../types'
 import AppIcon from '../../UI/AppIcon.vue'
-import { useCart } from '../cartStore'
+import { useCartStore } from '../cartStore'
 interface Props {
   cartItem: CartItem
 }
 const props = defineProps<Props>()
 const { cartItem } = toRefs(props)
-const { addProduct, removeProduct } = useCart()
+const { addProduct, removeProduct } = useCartStore()
 </script>
 
 <style lang="scss" scoped>

@@ -14,9 +14,9 @@
 
 <script setup lang="ts">
 import CartItem from '../CartItem'
-import { useCart } from '../cartStore'
+import { useCartStore } from '../cartStore'
 
-const cartStore = useCart()
+const cartStore = useCartStore()
 </script>
 
 <style scoped></style>
