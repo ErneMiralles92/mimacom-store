@@ -1,19 +1,28 @@
 <template>
-  <div class="cart-item">
+  <div class="cart-item" data-test-id="cartItem">
     <img
       class="cart-item-image"
       :src="cartItem.product.image_url"
       :alt="cartItem.product.productName"
     />
     <div class="cart-item-control">
-      <span class="text-title">{{ cartItem.product.productName }}</span>
+      <span class="text-title" data-test-id="cartProductName">
+        {{ cartItem.product.productName }}
+      </span>
       <div class="cart-item-actions">
-        <button class="btn-quantity" @click="removeProduct(cartItem.product)">
-          <AppIcon size="16" color="#9c27b0">mdi-minus</AppIcon>
-        </button>
-        <span class="cart-item-quantity">{{ cartItem.frequency }}</span>
         <button
           class="btn-quantity"
+          data-test-id="decrementProductQuantity"
+          @click="removeProduct(cartItem.product)"
+        >
+          <AppIcon size="16" color="#9c27b0">mdi-minus</AppIcon>
+        </button>
+        <span class="cart-item-quantity" data-test-id="carProductQuantity">
+          {{ cartItem.frequency }}
+        </span>
+        <button
+          class="btn-quantity"
+          data-test-id="incrementProductQuantity"
           :disabled="cartItem.product.stock === cartItem.frequency"
           @click="addProduct(cartItem.product)"
         >

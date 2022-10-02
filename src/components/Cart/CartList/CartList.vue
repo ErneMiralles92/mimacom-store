@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: -0.5rem 0">
+  <div data-test-id="cartList" style="margin: -0.5rem 0">
     <template v-if="cartStore.cart.length > 0">
       <CartItem
         v-for="item in cartStore.cart"

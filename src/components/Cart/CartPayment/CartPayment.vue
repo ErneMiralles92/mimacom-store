@@ -5,7 +5,11 @@
       <span class="amount">{{ cartStore.totalToPay }}</span>
     </div>
     <hr class="app-divider" style="margin: 1.5rem 0" />
-    <button class="cart-payment-button" :disabled="cartStore.cart.length === 0">
+    <button
+      class="cart-payment-button"
+      data-test-id="paymentButton"
+      :disabled="cartStore.cart.length === 0"
+    >
       Make a payment
     </button>
   </div>

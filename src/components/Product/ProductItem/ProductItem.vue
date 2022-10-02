@@ -1,5 +1,5 @@
 <template>
-  <div class="product-item">
+  <div class="product-item" data-test-id="productItem">
     <div class="aspect-ratio-box">
       <img
         class="aspect-ratio-box-inside product-item-image"
@@ -9,7 +9,7 @@
     </div>
     <div class="product-item-content">
       <div class="row justify-between" style="margin-top: 0.5rem">
-        <span class="product-item-title" data-testid="productName">{{
+        <span class="product-item-title" data-test-id="productName">{{
           product.productName
         }}</span>
         <span class="product-item-price">{{ product.price }}</span>
@@ -24,7 +24,7 @@
         <button
           class="product-item-button"
           :disabled="noMoreStock"
-          :data-testid="`addProductBtn-${product.id}`"
+          data-test-id="addProductBtn"
           @click="() => addProduct(product)"
         >
           <div class="row align-center">
@@ -49,7 +49,7 @@
     </div>
     <div class="product-item-favorite">
       <button
-        :data-testid="`favoriteProductBtn-${product.id}`"
+        data-test-id="favoriteProductBtn"
         @click="$emit('updateFavorite', product)"
       >
         <AppIcon size="28" color="#C58B35">{{
