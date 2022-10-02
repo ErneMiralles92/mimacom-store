@@ -1,9 +1,31 @@
-# Vue 3 + TypeScript + Vite
+# Grocery app
+A simple demo app of an online store where you can add products to the cart and also handle your favorite products.
+## Technologies
+- [Vue 3](https://vuejs.org) as JavaScript framework
+- [Vite](https://vitejs.dev) to set the development environment
+- [TypeScript](https://www.typescriptlang.org)
+- [Pinia](https://pinia.vuejs.org/) as Vue Store for state managing
+- [Vitest](https://vitest.dev/) for develop and run unit tests
+- [Cypress](https://vitejs.dev) for develop and run e2e tests
+## Development server
+```bash
+yarn dev
+```
+## Build
+```bash
+yarn build
+```
+## Unit testss
+```bash
+yarn test:unit
+```
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## E2e tests
+```bash
+yarn test:e2e
+```
 
 ## Recommended IDE Setup
-
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
 ## Type Support For `.vue` Imports in TS
