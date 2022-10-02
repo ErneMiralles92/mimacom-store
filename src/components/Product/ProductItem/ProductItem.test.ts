@@ -100,7 +100,6 @@ describe('ProductItem', () => {
     const favoriteIcon = wrapper.find('.product-item-favorite button i')
 
     it('should have an outlined star if the product is not marked as favorite', async () => {
-      console.log({ favoriteIcon: favoriteIcon.classes() })
       expect(favoriteIcon.classes()).toEqual(
         expect.arrayContaining(['mdi-star-outline']),
       )
