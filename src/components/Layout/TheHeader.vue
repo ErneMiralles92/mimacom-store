@@ -83,11 +83,6 @@ const cartStore = useCartStore()
     &:hover {
       box-shadow: $elevation-1;
     }
-
-    &:focus,
-    &:focus-visible {
-      outline: none;
-    }
   }
   .cart-btn {
     background-color: $primary;
@@ -111,10 +106,6 @@ const cartStore = useCartStore()
 
     &:hover {
       box-shadow: $elevation-1;
-    }
-    &:focus,
-    &:focus-visible {
-      outline: none;
     }
   }
 }

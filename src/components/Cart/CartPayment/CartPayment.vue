@@ -60,10 +60,7 @@ const cartStore = useCartStore()
     &:hover {
       box-shadow: $elevation-1;
     }
-    &:focus,
-    &:focus-visible {
-      outline: none;
-    }
+
     &:disabled {
       cursor: not-allowed;
       background: #4e4379;

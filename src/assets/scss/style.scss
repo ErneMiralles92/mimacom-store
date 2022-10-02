@@ -45,6 +45,12 @@ button {
   font-family: inherit;
   font-size: 0.875rem;
   cursor: pointer;
+
+  &:focus,
+  &:focus-visible {
+    box-shadow: $elevation-2;
+    outline: none;
+  }
 }
 
 .row {

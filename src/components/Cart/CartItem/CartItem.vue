@@ -96,10 +96,6 @@ const { addProduct, removeProduct } = useCartStore()
         &:hover {
           background-color: #cfd8dc;
         }
-        &:focus,
-        &:focus-visible {
-          outline: none;
-        }
 
         &:disabled {
           cursor: not-allowed;

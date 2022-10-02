@@ -60,9 +60,5 @@ const favorite = ref(false)
     box-shadow: $elevation-1;
     background-color: #cfd8dc;
   }
-  &:focus,
-  &:focus-visible {
-    outline: none;
-  }
 }
 </style>

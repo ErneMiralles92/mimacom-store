@@ -223,10 +223,6 @@ const itemFrequency = computed(() => {
       &:hover {
         box-shadow: $elevation-1;
       }
-      &:focus,
-      &:focus-visible {
-        outline: none;
-      }
 
       &:disabled {
         cursor: not-allowed;
@@ -251,11 +247,6 @@ const itemFrequency = computed(() => {
 
       &:hover {
         box-shadow: $elevation-2;
-      }
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
       }
     }
   }
