@@ -3,7 +3,11 @@
     <h5 class="primary--text" style="margin: 0">
       {{ favorite ? 'Favorite products' : 'Product List' }}
     </h5>
-    <button class="filter-favorite-btn" @click="favorite = !favorite">
+    <button
+      class="filter-favorite-btn"
+      :disabled="producStore.isUpdating"
+      @click="favorite = !favorite"
+    >
       <div class="row justify-between align-center">
         <span style="margin-right: 0.5rem">
           {{ favorite ? 'See all' : 'See favorites' }}
@@ -14,7 +18,7 @@
       </div>
     </button>
   </div>
-  <ProductList v-show="favorite" :favorite="favorite" />
+  <ProductList v-if="favorite" :favorite="favorite" />
   <ProductList v-show="!favorite" :favorite="favorite" />
 </template>
 
@@ -22,6 +26,9 @@
 import { ref } from 'vue'
 import ProductList from '../components/Product/ProductList'
 import AppIcon from '../components/UI/AppIcon.vue'
+import { useProductStore } from '../components/Product/productStore'
+
+const producStore = useProductStore()
 const favorite = ref(false)
 </script>
 
@@ -43,6 +50,10 @@ const favorite = ref(false)
   span {
     color: $primary;
     font-size: 1.25rem;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 
   &:hover {

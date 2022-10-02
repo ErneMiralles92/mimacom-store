@@ -6,7 +6,7 @@ export function useProduct() {
   const isLoading = ref(false)
   const products = ref<Array<Product>>([])
 
-  const updatingFavorite = ref(false)
+  const updatingProduct = ref(false)
 
   const getMoreProducts = async ({
     page,
@@ -43,7 +43,7 @@ export function useProduct() {
   const updateProduct = async (id: string, fields: { favorite: number }) => {
     let error: Error | null = null
     let data: Product | null = null
-    updatingFavorite.value = true
+    updatingProduct.value = true
     try {
       const response = await HttpService.patch(`/grocery/${id}`, {
         favorite: fields.favorite,
@@ -59,14 +59,14 @@ export function useProduct() {
       error = err as Error
       console.error(err)
     }
-    updatingFavorite.value = false
+    updatingProduct.value = false
     return { data, error }
   }
   return {
     isLoading,
     products,
     getMoreProducts,
-    updatingFavorite,
+    updatingProduct,
     updateProduct,
   }
 }

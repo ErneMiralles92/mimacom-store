@@ -26,6 +26,9 @@ import { computed, ref } from 'vue'
 import { useProduct } from '../composable'
 import { useIntersectionObserver } from '@vueuse/core'
 import { Product } from '../../../types'
+import { useProductStore } from '../productStore'
+
+const { setIsUpdating } = useProductStore()
 
 interface Props {
   favorite: boolean
@@ -67,9 +70,11 @@ const filteredProducts = computed(() => {
 })
 
 const setFavorite = async (product: Product) => {
-  updateProduct(product.id, {
+  setIsUpdating(true)
+  await updateProduct(product.id, {
     favorite: +product.favorite === 1 ? 0 : 1,
   })
+  setIsUpdating(false)
 }
 </script>
 
