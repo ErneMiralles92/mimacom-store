@@ -10,6 +10,7 @@ A simple demo app of an online store where you can add products to the cart and 
 ## Install dependencies
 ```bash
 yarn
+```
 ## Development server
 ```bash
 yarn dev
