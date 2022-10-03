@@ -2,7 +2,9 @@
   <div class="cart-payment">
     <div class="cart-payment-total">
       <span class="text-title">Total amount</span>
-      <span class="amount">{{ cartStore.totalToPay }}</span>
+      <span class="amount" data-test-id="totalTopay">
+        {{ cartStore.totalToPay }}
+      </span>
     </div>
     <hr class="app-divider" style="margin: 1.5rem 0" />
     <button

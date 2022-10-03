@@ -53,4 +53,10 @@ describe('Cart Flow', () => {
     cy.get('[data-test-id="addProductBtn"]').first().click()
     cy.get('[data-test-id="paymentButton"]').should('be.enabled')
   })
+  it('successfully show the total to pay', () => {
+    cy.visit('')
+    cy.get('[data-test-id="addProductBtn"]').first().click().click()
+    cy.get('[data-test-id="addProductBtn"]').eq(1).click().click().click()
+    cy.get('[data-test-id="totalTopay"]').should('have.text', '284')
+  })
 })
